@@ -1,0 +1,23 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Learning is cool!",
+  "dependencies": {
+    "electron": "^1.4.12"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taliatrilling/GitHub_Electron_Build_Day.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taliatrilling/GitHub_Electron_Build_Day/issues"
+  },
+  "homepage": "https://github.com/taliatrilling/GitHub_Electron_Build_Day#readme"
+}
