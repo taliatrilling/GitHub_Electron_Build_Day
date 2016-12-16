@@ -9,5 +9,21 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <h2 id="data">Items:</h2>
+
+    <script>
+      "use strict";
+      var $ = require('jQuery');
+      var Promise = require('promise');
+      var steamUserInventory = require('steam-user-inventory');
+      steamUserInventory('awtt').then(data => {
+          for (var i=0; i < data.length; i++) {
+            $('#data').append(data[i]['name']);
+            console.log(data[i]['name']);
+          }
+      });
+    </script>
+
   </body>
+
 </html>
