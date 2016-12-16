@@ -5,22 +5,26 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <h1>Look at my super cool loot!</h1>
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
-    <h2 id="data">Items:</h2>
+    <h2 id="data">Items:<br></h2>
 
     <script>
       "use strict";
       var $ = require('jQuery');
       var Promise = require('promise');
       var steamUserInventory = require('steam-user-inventory');
-      steamUserInventory('awtt').then(data => {
+      steamUserInventory('76561198061838289', '440/2/').then(data => {
+          console.log(data);
           for (var i=0; i < data.length; i++) {
             $('#data').append(data[i]['name']);
+            $('#data').append('<br>');
             console.log(data[i]['name']);
           }
+      }).catch(error => {
+        console.error(error);
       });
     </script>
 
