@@ -7,12 +7,13 @@
   </head>
   <body>
     <div class="container-fluid">
-    <h1>Look at my super cool loot!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
-    <h2>Items:<br></h2>
+    <h1>Look at this super cool TF2 loot!</h1>
+    <form>
+      Please enter your Steam UserID to see your TF2 loot:
+      <input type="text" name="userid" id="userid"></input><br>(If you aren't sure, visit <a class="itemlink" href= "http://steamid.co/">this</a>
+      link and copy your Steam 64 ID)
+      <button id="submit" class="itemlink">Show me my loot!</button>
+    </form>
     <div id="data" class="container"></div>
 
     <script>
@@ -21,8 +22,13 @@
       var $ = require('jQuery');
       var Promise = require('promise');
       var steamUserInventory = require('steam-user-inventory');
-      $('#data').html('');
-      steamUserInventory('76561198061838289', '440/2/').then(data => {
+  
+      $("#submit").click(function(event) {
+        event.preventDefault();
+        var userId = $('#userid').val()
+        console.log(userId);
+        $('#data').html('<h2>Items</h2>');
+        steamUserInventory(userId, '440/2/').then(data => {
           for (var i=0; i < data.length; i++) {
             var item = data[i]['name'];
             var link = data[i]['link'];
@@ -39,6 +45,8 @@
         var href = $(this).attr('href');
         shell.openExternal(href);
       });
+      })
+      // my id = 76561198061838289
     </script>
   </div>
   </body>
